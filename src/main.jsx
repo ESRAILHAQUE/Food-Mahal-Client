@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import Root from './Layout/Root.jsx';
+import Error from './Componets/Error/Error.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Root></Root>,
+    errorElement: <Error></Error>,
+    children: [{}, {}, {}, {}],
   },
 ]);
 
