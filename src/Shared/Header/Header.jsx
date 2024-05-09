@@ -19,19 +19,17 @@ function Header() {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li className="mr-3">
-        <NavLink to={"/about"}>About</NavLink>
+        <NavLink to={"/allfoods"}>All Foods</NavLink>
       </li>
       <li className="mr-3">
-        <NavLink to={"/services"}>Services</NavLink>
+        <NavLink to={"/gallery"}>Gallery</NavLink>
       </li>
-      <li className="mr-3">
-        <NavLink to={"/blog"}>Blog</NavLink>
-      </li>
+     
       <li className="mr-3">
         <NavLink to={"/contact"}>Contact</NavLink>
       </li>
       {users ? (
-        ''
+        ""
       ) : (
         <li className="mr-3">
           <NavLink to={"/login"}>Login</NavLink>

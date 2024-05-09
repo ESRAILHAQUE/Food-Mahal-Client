@@ -12,6 +12,9 @@ import SignUp from './Componets/SignUp/SignUp.jsx';
 import Login from './Componets/Login/Login.jsx';
 import Home from './Home/Home/Home.jsx';
 import AuthProviders from './Providers/AuthProviders.jsx';
+import AllFoods from './Componets/AllFoods/AllFoods.jsx';
+import Gallery from './Componets/Gallery/Gallery.jsx';
+import Contact from './Componets/Contact/Contact.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +33,20 @@ const router = createBrowserRouter([
       {
       path: '/login',
       element:<Login></Login>
-    }, {}, {}],
+      },
+      {
+        path: '/allfoods',
+        element:<AllFoods></AllFoods>
+      },
+      {
+        path: '/gallery',
+        element:<Gallery></Gallery>
+      },
+      {
+        path: '/contact',
+        element:<Contact></Contact>
+      }
+    ],
   },
 ]);
 
