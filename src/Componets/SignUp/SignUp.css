@@ -1,0 +1,25 @@
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate360Reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.whirl:hover  {
+  animation: rotate360 1s;
+}
+
+.whirl{
+  animation: rotate360Reverse 1s ;
+}

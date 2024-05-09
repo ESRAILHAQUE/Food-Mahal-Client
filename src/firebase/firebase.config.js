@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.authDomain,
-  authDomain: import.meta.env.apiKey,
-  projectId: import.meta.env.projectId,
-  storageBucket: import.meta.env.storageBucket,
-  messagingSenderId: import.meta.env.messagingSenderId,
-  appId: import.meta.env.appId
+  apiKey: "AIzaSyAjd-PPVsXSgawxd9a4UPcaFJ0PXtNBspg",
+  authDomain: "sensory-fution.firebaseapp.com",
+  projectId: "sensory-fution",
+  storageBucket: "sensory-fution.appspot.com",
+  messagingSenderId: "295186619070",
+  appId: "1:295186619070:web:6cf61154cb82a03370dcef",
 };
 
 // Initialize Firebase
