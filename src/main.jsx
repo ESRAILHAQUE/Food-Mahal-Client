@@ -49,12 +49,14 @@ const router = createBrowserRouter([
       {
         path: "/singlefood/:id",
         element: <SingleFood></SingleFood>,
-        loader: ({params}) =>
+        loader: ({ params }) =>
           fetch(`http://localhost:5000/allfoods/${params.id}`),
       },
       {
-        path: '/purchase',
-        element: <Purchase></Purchase>
+        path: "/purchase/:id",
+        element: <Purchase></Purchase>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/purchase/${params.id}`),
       },
     ],
   },

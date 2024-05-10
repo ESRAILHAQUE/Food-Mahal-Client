@@ -3,12 +3,24 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProviders";
+import { useLoaderData } from "react-router-dom";
 
 function Purchase() {
   
     const { users } = useContext(AuthContext);
 
-  
+  const food = useLoaderData();
+  const {
+    _id,
+    foodName,
+    foodImage,
+    foodCategory,
+    price,
+    quantity,
+    foodOrigin,
+    madeBy,
+    description,
+  } = food;
 
   const handlePurchase = (event) => {
     event.preventDefault();
@@ -47,11 +59,15 @@ function Purchase() {
   };
   return (
     <div>
-     
-      <div className="text-center text-3xl mb-3">
-        <h1>Service: {title} </h1>
-        <h1>users </h1>
+      <div className="text-center mx-auto w-1/2">
+        <img src={foodImage} alt="" className="rounded-lg" />
       </div>
+
+      <div className="text-center text-3xl my-3 space-y-3">
+              <h1>{foodName}</h1>
+              <h2>Item left: {quantity }</h2>
+          </div>
+          
 
       {/* form section */}
       <div className="mb-10">
@@ -61,7 +77,33 @@ function Purchase() {
               <div className="card-body gap-2 grid grid-cols-1 lg:grid-cols-2 ">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">First Name</span>
+                    <span className="label-text">Food Name</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Food Name"
+                    className="input input-bordered "
+                    required
+                    name="foodName"
+                    defaultValue={foodName}
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Quantity</span>
+                  </label>
+                  <input
+                    type="number"
+                    placeholder="Quantity"
+                    className="input input-bordered "
+                    required
+                    name="purchaseQuantity"
+                    defaultValue={1}
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Buyer</span>
                   </label>
                   <input
                     type="text"
@@ -86,14 +128,14 @@ function Purchase() {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Due</span>
+                    <span className="label-text">Price</span>
                   </label>
                   <input
                     type="text"
                     placeholder="Price"
                     className="input input-bordered"
                     required
-                    defaultValue={"$" + price}
+                    defaultValue={price}
                     name="price"
                   />
                 </div>
@@ -111,7 +153,7 @@ function Purchase() {
                   />
                 </div>
               </div>
-        
+
               <div className="mb-6 px-6">
                 <input
                   className="btn w-full mx-auto bg-red-600  "

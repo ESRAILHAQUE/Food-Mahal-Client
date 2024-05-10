@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { Link, useLoaderData } from "react-router-dom"
 
 function SingleFood() {
     const food = useLoaderData();
@@ -22,17 +22,19 @@ function SingleFood() {
             className="w-1/2 h-96 rounded-lg shadow-2xl mr-4"
           />
           <div>
-                      <h1 className="text-5xl font-bold">{foodName}</h1>
-                      <h1 className="my-3 text-2xl font-medium">SubCatagory: {foodCategory}</h1>
-                      <div className="text-xl space-y-2">
-                          <p>Price: {price}</p>
-                          <p>Made By: {madeBy}</p>
-                          <p>Origin: {foodOrigin }</p>
-                      </div>
-               <p className="py-6 text-xl">
-              ''{description}''
-            </p>
-            <button className="btn btn-primary">Purchase</button>
+            <h1 className="text-5xl font-bold">{foodName}</h1>
+            <h1 className="my-3 text-2xl font-medium">
+              SubCatagory: {foodCategory}
+            </h1>
+            <div className="text-xl space-y-2">
+              <p>Price: {price}</p>
+              <p>Made By: {madeBy}</p>
+              <p>Origin: {foodOrigin}</p>
+            </div>
+            <p className="py-6 text-xl">''{description}''</p>
+            <Link to={`/purchase/${_id}`}>
+              <button className="btn btn-primary">Purchase</button>
+            </Link>
           </div>
         </div>
       </div>
