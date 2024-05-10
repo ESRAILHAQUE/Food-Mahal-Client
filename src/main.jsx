@@ -9,6 +9,7 @@ import Error from './Componets/Error/Error.jsx';
 import SignUp from './Componets/SignUp/SignUp.jsx';
 import Login from './Componets/Login/Login.jsx';
 import Home from './Home/Home/Home.jsx';
+import "animate.css";
 import AuthProviders from './Providers/AuthProviders.jsx';
 import AllFoods from './Componets/AllFoods/AllFoods.jsx';
 import Gallery from './Componets/Gallery/Gallery.jsx';
@@ -53,20 +54,31 @@ const router = createBrowserRouter([
       },
       {
         path: "/addfooditem",
-        element: <AddFoodItem></AddFoodItem>,
+        element: (
+          <PrivateRoute>
+            <AddFoodItem></AddFoodItem>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myaddeditem",
-        element: <MyAddedItem></MyAddedItem>,
+        element: (
+          <PrivateRoute>
+            <MyAddedItem></MyAddedItem>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/review",
-        element:<Review></Review>
-
+        element: <Review></Review>,
       },
       {
         path: "/update/:id",
-        element: <Update></Update>,
+        element: (
+          <PrivateRoute>
+            <Update></Update>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/addeditems/${params.id}`),
       },

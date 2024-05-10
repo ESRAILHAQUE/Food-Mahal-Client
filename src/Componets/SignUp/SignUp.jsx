@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import "./SignUp.css";
+import bg from "../../assets/images/wave.png";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 import app from "../../firebase/firebase.config";
@@ -79,8 +80,14 @@ function SignUp() {
   };
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
-        
+      <div
+        className="hero min-h-screen bg-base-200"
+        style={{
+          backgroundImage: `url(${bg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
         <div className="hero-content  items-center">
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 animate__animated animate__fadeInTopRight">
             <form className="card-body" onSubmit={handleSignUp}>

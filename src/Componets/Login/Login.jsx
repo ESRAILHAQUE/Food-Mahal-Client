@@ -5,6 +5,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import { getAuth } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 import Swal from "sweetalert2";
+import bg from '../../assets/images/wave.png'
 import { ToastContainer, toast } from "react-toastify";
 // import { useHistory } from "react-router-dom";
 
@@ -60,8 +61,11 @@ function Login() {
       });
   };
   return (
-    <div>
-      <div className="hero min-h-screen bg-base-200">
+    <div style={{
+      backgroundImage: `url(${bg})`,
+      backgroundRepeat: 'no-repeat',
+    backgroundSize:'cover'}}>
+      <div className="hero min-h-screen">
         <ToastContainer></ToastContainer>
         <div className="hero-content   items-center">
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 animate__animated animate__fadeInTopRight">
