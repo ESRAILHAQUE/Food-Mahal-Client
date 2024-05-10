@@ -19,6 +19,7 @@ import PrivateRoute from './Componets/PrivateRoute/PrivateRoute.jsx';
 import AddFoodItem from './Componets/AddFoodItem/AddFoodItem.jsx';
 import MyAddedItem from './Componets/MyAddedItem/MyAddedItem.jsx';
 import Update from './Componets/Update/Update.jsx';
+import Review from './Componets/Review/Review.jsx';
 
 const router = createBrowserRouter([
   {
@@ -56,11 +57,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/myaddeditem",
-        element:<MyAddedItem></MyAddedItem>
+        element: <MyAddedItem></MyAddedItem>,
       },
       {
-        path: '/update',
-        element:<Update></Update>
+        path: "/review",
+        element:<Review></Review>
+
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/addeditems/${params.id}`),
       },
       {
         path: "/singlefood/:id",

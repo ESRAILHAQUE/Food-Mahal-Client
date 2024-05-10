@@ -3,8 +3,21 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 import bg from '../../assets/images/bggif.gif'
 import wave from "../../assets/images/wave.png";
+import { useLoaderData } from "react-router-dom";
 
 function Update() {
+    const food = useLoaderData();
+    const {
+      foodName,
+      foodImage,
+      subCatagory,
+      purchaseQuantity,
+      currentDate,
+      price,
+      origin,
+      description,
+      addBy,
+    } = food;
    const { users } = useContext(AuthContext);
    const handleAdd = (event) => {
      event.preventDefault();
@@ -78,7 +91,8 @@ function Update() {
                      type="text"
                      placeholder="Food Name"
                      className="input input-bordered "
-                     required
+                                       required
+                                       defaultValue={foodName}
                      name="foodName"
                    />
                  </div>
@@ -92,7 +106,8 @@ function Update() {
                      type="text"
                      placeholder="Image URL"
                      className="input input-bordered "
-                     required
+                                       required
+                                       defaultValue={foodImage}
                      name="foodImage"
                    />
                  </div>
@@ -106,7 +121,8 @@ function Update() {
                      type="text"
                      placeholder="SubCatagory"
                      className="input input-bordered "
-                     required
+                                       required
+                                       defaultValue={subCatagory}
                      name="subCatagory"
                    />
                  </div>
@@ -120,7 +136,8 @@ function Update() {
                      type="number"
                      placeholder="Quantity"
                      className="input input-bordered "
-                     required
+                                       required
+                                       defaultValue={purchaseQuantity}
                      name="purchaseQuantity"
                    />
                  </div>
@@ -149,7 +166,8 @@ function Update() {
                      type="text"
                      placeholder="Price"
                      className="input input-bordered"
-                     required
+                                       required
+                                       defaultValue={price}
                      name="price"
                    />
                  </div>
@@ -163,7 +181,8 @@ function Update() {
                      type="text"
                      placeholder="Country"
                      className="input input-bordered"
-                     required
+                                       required
+                                       defaultValue={origin}
                      name="origin"
                    />
                  </div>
@@ -177,7 +196,8 @@ function Update() {
                      type="text"
                      placeholder="Description"
                      className="input input-bordered"
-                     required
+                                       required
+                                       defaultValue={description}
                      name="description"
                    />
                  </div>
@@ -191,9 +211,10 @@ function Update() {
                      type="text"
                      placeholder="AddBy"
                      className="input input-bordered "
-                     required
+                                       required
+                                       disabled
                      name="addBy"
-                     defaultValue={users?.displayName}
+                     defaultValue={addBy}
                    />
                  </div>
                  <div className="form-control">
@@ -206,7 +227,8 @@ function Update() {
                      type="email"
                      placeholder="Your Email"
                      className="input input-bordered"
-                     required
+                                       required
+                                       disabled
                      name="email"
                      defaultValue={users?.email}
                    />

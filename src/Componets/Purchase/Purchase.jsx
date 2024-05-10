@@ -31,7 +31,6 @@ function Purchase() {
 
     
     const PurchaseInfo = {
-      img,
       name,
       currentDate,
       price,

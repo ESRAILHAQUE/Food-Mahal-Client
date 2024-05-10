@@ -2,7 +2,7 @@ import { MdOutlineEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 function AddedItemCard({item}) {
-    const { foodName, foodImage, subCatagory, currentDate, origin, email,price } =
+    const {_id, foodName, foodImage, subCatagory, currentDate, origin, email,price } =
       item;
   return (
     
@@ -22,7 +22,7 @@ function AddedItemCard({item}) {
         </td>
         <td>${price}</td>
         <th>
-          <Link to={'/update'}>
+          <Link to={`/update/${_id}`}>
             <button className="btn btn-warning">
               <MdOutlineEdit className="text-2xl font-bold" />
               Update

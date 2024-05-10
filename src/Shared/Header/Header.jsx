@@ -24,12 +24,17 @@ function Header() {
       <li className="mr-3">
         <NavLink to={"/gallery"}>Gallery</NavLink>
       </li>
-     
+
       <li className="mr-3">
         <NavLink to={"/contact"}>Contact</NavLink>
       </li>
+      <li className="mr-3">
+        <NavLink to={"/review"}>Review</NavLink>
+      </li>
       {users ? (
-        ""
+        <li className="mr-3">
+          <button onClick={handleLogOut}>LogOut</button>
+        </li>
       ) : (
         <li className="mr-3">
           <NavLink to={"/login"}>Login</NavLink>
