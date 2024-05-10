@@ -17,6 +17,7 @@ import SingleFood from './Componets/SingleFood/SingleFood.jsx';
 import Purchase from './Componets/Purchase/Purchase.jsx';
 import PrivateRoute from './Componets/PrivateRoute/PrivateRoute.jsx';
 import AddFoodItem from './Componets/AddFoodItem/AddFoodItem.jsx';
+import MyAddedItem from './Componets/MyAddedItem/MyAddedItem.jsx';
 
 const router = createBrowserRouter([
   {
@@ -49,8 +50,12 @@ const router = createBrowserRouter([
         element: <Contact></Contact>,
       },
       {
-        path: '/addfooditem',
-        element:<AddFoodItem></AddFoodItem>
+        path: "/addfooditem",
+        element: <AddFoodItem></AddFoodItem>,
+      },
+      {
+        path: "/myaddeditem",
+        element:<MyAddedItem></MyAddedItem>
       },
       {
         path: "/singlefood/:id",

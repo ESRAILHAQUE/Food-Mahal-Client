@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 function AddFoodItem() {
     const { users } = useContext(AuthContext);
@@ -20,7 +21,25 @@ function AddFoodItem() {
        const addInfo = {
          foodName,foodImage,subCatagory,purchaseQuantity,currentDate,price,origin,description,addBy,email
        }
-       console.log(addInfo)
+     console.log(addInfo)
+     fetch("http://localhost:5000/added", {
+       method: "POST",
+       headers: {
+         'content-type':'application/json'
+       },
+       body: JSON.stringify(addInfo)
+     })
+       .then(res => res.json())
+       .then(data => {
+         console.log(data)
+         if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Succesfully added!",
+            icon: "success",
+          });
+        }
+     })
    };
   return (
     <div>

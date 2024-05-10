@@ -100,7 +100,7 @@ function Header() {
                   {users?.displayName ? users.displayName : "Profile"}
                 </h2>
                 <li>
-                  <Link>My added food items</Link>
+                  <Link to={'/myaddeditem'}>My added food items</Link>
                 </li>
                 <li>
                   <Link to={'/addfooditem'}>Add a food item</Link>
