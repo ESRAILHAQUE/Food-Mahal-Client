@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 function FoodCard({food}) {
     const {
+        _id,
       foodName,
       foodImage,
       foodCategory,
@@ -18,12 +21,14 @@ function FoodCard({food}) {
         <div className="card-body ">
           <h2 className="font-semibold text-2xl text-center">{foodName}</h2>
           <p className="text-center text-xl ">{foodCategory}</p>
-          <div className="flex justify-between gap-10"> 
+          <div className="flex justify-between gap-10">
             <p>Price: {price}</p>
             <p>Qurantity: {quantity}</p>
           </div>
           <div className="card-actions mt-3">
-            <button className="btn btn-primary">Details Button</button>
+            <Link to={`/singlefood/${_id}`}>
+              <button className="btn btn-primary">Details Button</button>
+            </Link>
           </div>
         </div>
       </div>

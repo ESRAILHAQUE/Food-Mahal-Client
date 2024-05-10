@@ -1,8 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// index.css or App.css or any other CSS file
 import 'tailwindcss/tailwind.css';
-
 import "react-toastify/dist/ReactToastify.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
@@ -15,6 +13,8 @@ import AuthProviders from './Providers/AuthProviders.jsx';
 import AllFoods from './Componets/AllFoods/AllFoods.jsx';
 import Gallery from './Componets/Gallery/Gallery.jsx';
 import Contact from './Componets/Contact/Contact.jsx';
+import SingleFood from './Componets/SingleFood/SingleFood.jsx';
+import Purchase from './Componets/Purchase/Purchase.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,29 +23,39 @@ const router = createBrowserRouter([
     errorElement: <Error></Error>,
     children: [
       {
-        path: '/',
-        element:<Home></Home>
+        path: "/",
+        element: <Home></Home>,
       },
       {
-      path: '/signup',
-      element:<SignUp></SignUp>,
-    },
-      {
-      path: '/login',
-      element:<Login></Login>
+        path: "/signup",
+        element: <SignUp></SignUp>,
       },
       {
-        path: '/allfoods',
-        element:<AllFoods></AllFoods>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/gallery',
-        element:<Gallery></Gallery>
+        path: "/allfoods",
+        element: <AllFoods></AllFoods>,
       },
       {
-        path: '/contact',
-        element:<Contact></Contact>
-      }
+        path: "/gallery",
+        element: <Gallery></Gallery>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/singlefood/:id",
+        element: <SingleFood></SingleFood>,
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/allfoods/${params.id}`),
+      },
+      {
+        path: '/purchase',
+        element: <Purchase></Purchase>
+      },
     ],
   },
 ]);
