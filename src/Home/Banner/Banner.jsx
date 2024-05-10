@@ -1,128 +1,110 @@
-import * as React from "react";
-import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import MobileStepper from "@mui/material/MobileStepper";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import SwipeableViews from "react-swipeable-views";
-import { autoPlay } from "react-swipeable-views-utils";
+import React, { Component } from 'react';
+import banner4 from '../../assets/images/Banner/banner1.jpg'
+import banner1 from "../../assets/images/Banner/banner2.jpg";
+import banner3 from "../../assets/images/Banner/banner3.jpg";
+import banner2 from "../../assets/images/Banner/banner4.jpg";
+import { useTypewriter } from 'react-simple-typewriter';
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const images = [
-  {
-    label: "San Francisco – Oakland Bay Bridge, United States",
-    imgPath:
-      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
-  },
-  {
-    label: "Bird",
-    imgPath:
-      "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
-  },
-  {
-    label: "Bali, Indonesia",
-    imgPath:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250",
-  },
-  {
-    label: "Goč, Serbia",
-    imgPath:
-      "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
-  },
-];
-
-function SwipeableTextMobileStepper() {
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleStepChange = (step: number) => {
-    setActiveStep(step);
-  };
-
-  return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
-      <Paper
-        square
-        elevation={0}
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          height: 50,
-          pl: 2,
-          bgcolor: "background.default",
-        }}
-      >
-        <Typography>{images[activeStep].label}</Typography>
-      </Paper>
-      <AutoPlaySwipeableViews
-        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
-      >
-        {images.map((step, index) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  height: 255,
-                  display: "block",
-                  maxWidth: 400,
-                  overflow: "hidden",
-                  width: "100%",
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
-            ) : null}
+function Banner() {
+     const [text] = useTypewriter({
+       words: [
+         "Mediterranean Grilled Chicken",
+         "This dish is versatile",
+         "Whether enjoyed on a warm summer evening",
+       ],
+       loop: 1,
+     });
+   
+    return (
+      <>
+        <div className="carousel w-full h-[80vh]">
+          <div id="item1" className="carousel-item w-full relative ">
+            <img src={banner1} className="w-full" />
+            <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%]  space-y-4  ">
+              <h3 className="text-3xl font-bold drop-shadow-lg">
+               ' {text} '
+              </h3>
+              <p className="text-2xl font-semibold drop-shadow-lg">
+                Indulge in the flavors of the Mediterranean with this
+                mouthwatering grilled chicken dish. Tender chicken breasts are
+                marinated in a blend of olive oil, lemon juice, garlic, and
+                Mediterranean spices, infusing them with rich flavor and aroma
+              </p>
+              <button className="btn  btn-primary btn-outline">
+                See All Foods
+              </button>
+            </div>
           </div>
-        ))}
-      </AutoPlaySwipeableViews>
-      <MobileStepper
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-        nextButton={
-          <Button
-            size="small"
-            onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
-          >
-            Next
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
-            Back
-          </Button>
-        }
-      />
-    </Box>
-  );
-}
+          <div id="item2" className="carousel-item w-full relative">
+            <img src={banner2} className="w-full" />
+            <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%] space-y-4  ">
+              <h3 className="text-3xl font-bold drop-shadow-lg">
+                ' {text} '
+              </h3>
+              <p className="text-2xl font-semibold drop-shadow-lg">
+                Indulge in the flavors of the Mediterranean with this
+                mouthwatering grilled chicken dish. Tender chicken breasts are
+                marinated in a blend of olive oil, lemon juice, garlic, and
+                Mediterranean spices, infusing them with rich flavor and aroma
+              </p>
+              <button className="btn  btn-primary btn-outline">
+                See All Foods
+              </button>
+            </div>
+          </div>
+          <div id="item3" className="carousel-item w-full relative">
+            <img src={banner3} className="w-full" />
+            <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%]  space-y-4  ">
+              <h3 className="text-3xl font-bold drop-shadow-lg">
+                ' {text} '
+              </h3>
+              <p className="text-2xl font-semibold drop-shadow-lg">
+                Indulge in the flavors of the Mediterranean with this
+                mouthwatering grilled chicken dish. Tender chicken breasts are
+                marinated in a blend of olive oil, lemon juice, garlic, and
+                Mediterranean spices, infusing them with rich flavor and aroma
+              </p>
+              <button className="btn  btn-primary btn-outline">
+                See All Foods
+              </button>
+            </div>
+          </div>
+          <div id="item4" className="carousel-item w-full relative">
+            <img src={banner4} className="w-full " />
+            <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%]  space-y-4  ">
+              <h3 className="text-3xl font-bold drop-shadow-lg">
+                ' {text} '
+              </h3>
+              <p className="text-2xl font-semibold drop-shadow-lg">
+                Indulge in the flavors of the Mediterranean with this
+                mouthwatering grilled chicken dish. Tender chicken breasts are
+                marinated in a blend of olive oil, lemon juice, garlic, and
+                Mediterranean spices, infusing them with rich flavor and aroma
+              </p>
+              <button className="btn  btn-primary btn-outline">
+                See All Foods
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-center w-full py-2 gap-2">
+          <a href="#item1" className="btn btn-xs">
+            1
+          </a>
+          <a href="#item2" className="btn btn-xs">
+            2
+          </a>
+          <a href="#item3" className="btn btn-xs">
+            3
+          </a>
+          <a href="#item4" className="btn btn-xs">
+            4
+          </a>
+        </div>
+      </>
+    );
+    }
 
-export default SwipeableTextMobileStepper;
+
+export default Banner;

@@ -66,7 +66,8 @@ function Header() {
         </div>
         <Link to="/">
           <img src={logo} alt="" className="w-16" />
-        </Link>
+              </Link>
+              <h2 className="text-green-700 text-2xl">Food Mahal</h2>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
