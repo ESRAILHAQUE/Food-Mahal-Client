@@ -1,6 +1,36 @@
+import { useEffect, useState } from "react"
+import FoodCard from "./FoodCard";
+
 function AllFoods() {
-  return (
-    <div>AllFoods</div>
-  )
+    const [foods, setFoods] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:5000/allfoods")
+            .then(res => res.json())
+            .then(data => {
+            setFoods(data)
+        })
+    },[])
+    return (
+      
+    <div>
+          <div className="bg-[#a2d9ff] py-5">
+                <h2 className="text-4xl text-center font-semibold text-white">All Delicious Food</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mx-8 mt-8">
+                    {
+                        foods.map(food => <FoodCard
+                        key={food._id} food={food}></FoodCard>)
+                    }
+                </div>
+
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#a2d9ff"
+          
+          d="M0,256L40,240C80,224,160,192,240,197.3C320,203,400,245,480,245.3C560,245,640,203,720,208C800,213,880,267,960,272C1040,277,1120,235,1200,224C1280,213,1360,235,1400,245.3L1440,256L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+        ></path>
+      </svg>
+    </div>
+  );
 }
 export default AllFoods
