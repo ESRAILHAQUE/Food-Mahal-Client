@@ -42,7 +42,7 @@ function Login() {
           if (result.user) {
                  Swal.fire({
                    icon: "success",
-                   title: "Oops...",
+                   title: "Congratulation",
                    text: "Successfully Login",
                  });
           }

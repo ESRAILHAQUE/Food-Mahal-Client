@@ -12,7 +12,8 @@ function AllFoods() {
         })
     },[])
     return (
-      <div>
+        <div>
+            
         <div
           className="bg-[#a2d9ff] py-5 "
         >

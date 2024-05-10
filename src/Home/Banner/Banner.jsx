@@ -4,6 +4,7 @@ import banner1 from "../../assets/images/Banner/banner2.jpg";
 import banner3 from "../../assets/images/Banner/banner3.jpg";
 import banner2 from "../../assets/images/Banner/banner4.jpg";
 import { useTypewriter } from 'react-simple-typewriter';
+import { Link } from 'react-router-dom';
 
 
 function Banner() {
@@ -22,69 +23,69 @@ function Banner() {
           <div id="item1" className="carousel-item w-full relative ">
             <img src={banner1} className="w-full" />
             <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%]  space-y-4  ">
-              <h3 className="text-3xl font-bold drop-shadow-lg">
-               ' {text} '
-              </h3>
+              <h3 className="text-3xl font-bold drop-shadow-lg">' {text} '</h3>
               <p className="text-2xl font-semibold drop-shadow-lg">
                 Indulge in the flavors of the Mediterranean with this
                 mouthwatering grilled chicken dish. Tender chicken breasts are
                 marinated in a blend of olive oil, lemon juice, garlic, and
                 Mediterranean spices, infusing them with rich flavor and aroma
               </p>
-              <button className="btn  btn-primary btn-outline">
-                See All Foods
-              </button>
+              <Link to={'/allfoods'}>
+                <button className="btn  btn-primary btn-outline">
+                  See All Foods
+                </button>
+              </Link>
             </div>
           </div>
           <div id="item2" className="carousel-item w-full relative">
             <img src={banner2} className="w-full" />
             <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%] space-y-4  ">
-              <h3 className="text-3xl font-bold drop-shadow-lg">
-                ' {text} '
-              </h3>
+              <h3 className="text-3xl font-bold drop-shadow-lg">' {text} '</h3>
               <p className="text-2xl font-semibold drop-shadow-lg">
                 Indulge in the flavors of the Mediterranean with this
                 mouthwatering grilled chicken dish. Tender chicken breasts are
                 marinated in a blend of olive oil, lemon juice, garlic, and
                 Mediterranean spices, infusing them with rich flavor and aroma
               </p>
-              <button className="btn  btn-primary btn-outline">
-                See All Foods
-              </button>
+              <Link to={'/allfoods'}>
+                <button className="btn  btn-primary btn-outline">
+                  See All Foods
+                </button>
+              </Link>
             </div>
           </div>
           <div id="item3" className="carousel-item w-full relative">
             <img src={banner3} className="w-full" />
             <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%]  space-y-4  ">
-              <h3 className="text-3xl font-bold drop-shadow-lg">
-                ' {text} '
-              </h3>
+              <h3 className="text-3xl font-bold drop-shadow-lg">' {text} '</h3>
               <p className="text-2xl font-semibold drop-shadow-lg">
                 Indulge in the flavors of the Mediterranean with this
                 mouthwatering grilled chicken dish. Tender chicken breasts are
                 marinated in a blend of olive oil, lemon juice, garlic, and
                 Mediterranean spices, infusing them with rich flavor and aroma
               </p>
-              <button className="btn  btn-primary btn-outline">
-                See All Foods
-              </button>
+              <Link to={'/allfoods'}>
+                <button className="btn  btn-primary btn-outline">
+                  See All Foods
+                </button>
+              </Link>
             </div>
           </div>
           <div id="item4" className="carousel-item w-full relative">
             <img src={banner4} className="w-full " />
             <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%]  space-y-4  ">
-              <h3 className="text-3xl font-bold drop-shadow-lg">
-                ' {text} '
-              </h3>
+              <h3 className="text-3xl font-bold drop-shadow-lg">' {text} '</h3>
               <p className="text-2xl font-semibold drop-shadow-lg">
                 Indulge in the flavors of the Mediterranean with this
                 mouthwatering grilled chicken dish. Tender chicken breasts are
                 marinated in a blend of olive oil, lemon juice, garlic, and
                 Mediterranean spices, infusing them with rich flavor and aroma
               </p>
-              <button className="btn  btn-primary btn-outline">
-                See All Foods
-              </button>
+              <Link to={'/allfoods'}>
+                <button className="btn  btn-primary btn-outline">
+                  See All Foods
+                </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ function FoodCard({food}) {
     
   return (
     <div>
-      <div className="card bg-base-100 shadow-xl h-full">
+      <div className="card bg-base-100 shadow-xl h-full ">
         <figure className="px-10 pt-10">
           <img src={foodImage} alt="Shoes" className="rounded-xl w-full h-60" />
         </figure>
@@ -27,7 +27,7 @@ function FoodCard({food}) {
           </div>
           <div className="card-actions mt-3">
             <Link to={`/singlefood/${_id}`}>
-              <button className="btn btn-primary">Details Button</button>
+              <button className="btn btn-primary">See Details</button>
             </Link>
           </div>
         </div>

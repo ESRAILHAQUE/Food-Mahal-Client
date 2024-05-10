@@ -15,6 +15,8 @@ import Gallery from './Componets/Gallery/Gallery.jsx';
 import Contact from './Componets/Contact/Contact.jsx';
 import SingleFood from './Componets/SingleFood/SingleFood.jsx';
 import Purchase from './Componets/Purchase/Purchase.jsx';
+import PrivateRoute from './Componets/PrivateRoute/PrivateRoute.jsx';
+import AddFoodItem from './Componets/AddFoodItem/AddFoodItem.jsx';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,10 @@ const router = createBrowserRouter([
         element: <Contact></Contact>,
       },
       {
+        path: '/addfooditem',
+        element:<AddFoodItem></AddFoodItem>
+      },
+      {
         path: "/singlefood/:id",
         element: <SingleFood></SingleFood>,
         loader: ({ params }) =>
@@ -54,7 +60,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/purchase/:id",
-        element: <Purchase></Purchase>,
+        element: (
+          <PrivateRoute>
+            <Purchase></Purchase>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/purchase/${params.id}`),
       },
