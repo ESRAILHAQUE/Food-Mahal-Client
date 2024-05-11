@@ -1,12 +1,12 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react";
 import AddedItemCard from "./AddedItemCard";
-import bg from '../../assets/images/bggif.gif'
+import bg from "../../assets/images/bggif.gif";
 import { AuthContext } from "../../Providers/AuthProviders";
 
 function MyAddedItem() {
-    const [items, setItems] = useState([]);
-    const { users } = useContext(AuthContext);
-    const url = `http://localhost:5000/addeditems?email=${users.email}`;
+  const [items, setItems] = useState([]);
+  const { users } = useContext(AuthContext);
+  const url = `http://localhost:5000/addeditems?email=${users.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -14,7 +14,7 @@ function MyAddedItem() {
         setItems(data);
       });
   }, []);
-  
+
   return (
     <div>
       <h1 className="text-center text-2xl my-5">My Added Food Items</h1>
@@ -42,4 +42,4 @@ function MyAddedItem() {
     </div>
   );
 }
-export default MyAddedItem
+export default MyAddedItem;

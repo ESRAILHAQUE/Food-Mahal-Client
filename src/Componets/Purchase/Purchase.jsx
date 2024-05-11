@@ -25,36 +25,41 @@ function Purchase() {
   const handlePurchase = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
-    const currentDate = form.currentDate.value;
-    const email = form.email.value;
-
+    const foodName = form.foodName.value;
+    const purchaseQuantity = form.purchaseQuantity.value;
+      const name = form.name.value;
+      const currentDate = form.currentDate.value;
+      const price = form.price.value;
+      const email = form.email.value;
+    
     
     const PurchaseInfo = {
-      name,
+      foodName,
+      purchaseQuantity,
       currentDate,
+      name,
       price,
       email,
     };
     console.log(PurchaseInfo);
-    // fetch("http://localhost:5000/bookings", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(PurchaseInfo),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     if (data.insertedId) {
-    //       Swal.fire({
-    //         title: "Success!",
-    //         text: "Succesfully added!",
-    //         icon: "success",
-    //       });
-    //     }
-    //   });
+    fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(PurchaseInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Succesfully added!",
+            icon: "success",
+          });
+        }
+      });
   };
   return (
     <div>
