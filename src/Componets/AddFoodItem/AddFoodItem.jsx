@@ -21,8 +21,8 @@ function AddFoodItem() {
        const addInfo = {
          foodName,foodImage,subCatagory,purchaseQuantity,currentDate,price,origin,description,addBy,email
        }
-     console.log(addInfo)
-     fetch("http://localhost:5000/added", {
+    //  console.log(addInfo)
+     fetch("https://testing-sand-phi.vercel.app/added", {
        method: "POST",
        headers: {
          'content-type':'application/json'
@@ -31,7 +31,7 @@ function AddFoodItem() {
      })
        .then(res => res.json())
        .then(data => {
-         console.log(data)
+        //  console.log(data)
          if (data.insertedId) {
           Swal.fire({
             title: "Success!",

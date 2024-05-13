@@ -102,7 +102,7 @@ function Header() {
                 className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <h2 className="text-center my-2 font-semibold">
-                  {users?.displayName ? users.displayName : "Profile"}
+                  {users?.displayName ? users?.displayName : "Profile"}
                 </h2>
                 <li>
                   <Link to={'/myaddeditem'}>My added food items</Link>
@@ -111,7 +111,7 @@ function Header() {
                   <Link to={'/addfooditem'}>Add a food item</Link>
                 </li>
                 <li>
-                  <Link>My ordered food items</Link>
+                  <Link to={'/bookings'}>My ordered food items</Link>
                 </li>
                 {users && (
                   <li className="mr-3">

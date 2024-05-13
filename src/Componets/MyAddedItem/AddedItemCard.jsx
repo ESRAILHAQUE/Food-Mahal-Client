@@ -23,7 +23,7 @@ function AddedItemCard({item}) {
         <td>${price}</td>
         <th>
           <Link to={`/update/${_id}`}>
-            <button className="btn btn-warning">
+            <button className="btn btn-primary">
               <MdOutlineEdit className="text-2xl font-bold" />
               Update
             </button>

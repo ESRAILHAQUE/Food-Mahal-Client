@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 
 function SignUp() {
   const Navigate = useNavigate();
+ 
   const { createUser } = useContext(AuthContext);
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -37,18 +38,18 @@ function SignUp() {
         });
         return; // Exit function if validation fails
       }
-    console.log(singnUpCredientials);
+    // console.log(singnUpCredientials);
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-          console.log(user);
+          // console.log(user);
           if (result.user) {
             Swal.fire({
               icon: "success",
               title: "Congratulatios!",
               text: "User Successfully registered",
             });
-              Navigate('/');
+              Navigate("/");
          }
       })
       .catch((error) => {
@@ -74,7 +75,7 @@ function SignUp() {
   const handleGoogleLogin = () => {
     signInWithPopup(auth, provider).then((result) => {
       const user = result.user;
-      console.log(user);
+      // console.log(user);
       Navigate("/");
     });
   };

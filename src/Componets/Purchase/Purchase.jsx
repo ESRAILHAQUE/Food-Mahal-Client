@@ -3,10 +3,12 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProviders";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Purchase() {
   
+  const Navigate = useNavigate();
     const { users } = useContext(AuthContext);
 
   const food = useLoaderData();
@@ -40,9 +42,10 @@ function Purchase() {
       name,
       price,
       email,
+      foodImage,
     };
-    console.log(PurchaseInfo);
-    fetch("http://localhost:5000/bookings", {
+    // console.log(PurchaseInfo);
+    fetch("https://testing-sand-phi.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -51,15 +54,21 @@ function Purchase() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           Swal.fire({
-            title: "Success!",
-            text: "Succesfully added!",
+            title: "Well Done!",
+            text: "Succesfully Purchased!",
             icon: "success",
           });
         }
       });
+     
+    axios.post(`https://testing-sand-phi.vercel.app/increment/${_id}`);
+    Navigate("/allfoods");
+    
+           
+         
   };
   return (
     <div>
@@ -75,7 +84,7 @@ function Purchase() {
 
       {/* form section */}
       <div className="mb-10">
-        <div className="hero  bg-base-200 px-16 py-10">
+        <div className="hero  bg-base-200 px-2 lg:px-16 py-10">
           <div className="card  w-full shadow-2xl bg-base-100 ">
             <form onSubmit={handlePurchase}>
               <div className="card-body gap-2 grid grid-cols-1 lg:grid-cols-2 ">

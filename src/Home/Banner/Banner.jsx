@@ -19,19 +19,21 @@ function Banner() {
    
     return (
       <>
-        <div className="carousel w-full h-[80vh]">
+        <div className="carousel w-full h-[80vh]" id='banner'>
           <div id="item1" className="carousel-item w-full relative ">
             <img src={banner1} className="w-full" />
-            <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%]  space-y-4  ">
-              <h3 className="text-3xl font-bold drop-shadow-lg">' {text} '</h3>
-              <p className="text-2xl font-semibold drop-shadow-lg">
+            <div className="  bg-slate-50 px-2 lg:px-5 lg:py-7 rounded absolute left-8 top-20 w-[45%]  space-y-4  ">
+              <h3 className="text-3xl font-bold drop-shadow-lg hidden md:block">
+                ' {text} '
+              </h3>
+              <p className="text-2xl font-semibold drop-shadow-lg hidden lg:block">
                 Indulge in the flavors of the Mediterranean with this
                 mouthwatering grilled chicken dish. Tender chicken breasts are
                 marinated in a blend of olive oil, lemon juice, garlic, and
                 Mediterranean spices, infusing them with rich flavor and aroma
               </p>
-              <Link to={'/allfoods'}>
-                <button className="btn  btn-primary btn-outline">
+              <Link to={"/allfoods"}>
+                <button className="btn  btn-primary btn-outline my-2">
                   See All Foods
                 </button>
               </Link>
@@ -40,15 +42,17 @@ function Banner() {
           <div id="item2" className="carousel-item w-full relative">
             <img src={banner2} className="w-full" />
             <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%] space-y-4  ">
-              <h3 className="text-3xl font-bold drop-shadow-lg">' {text} '</h3>
-              <p className="text-2xl font-semibold drop-shadow-lg">
+              <h3 className="text-3xl font-bold drop-shadow-lg hidden md:block">
+                ' {text} '
+              </h3>
+              <p className="text-2xl font-semibold drop-shadow-lg hidden lg:block">
                 Indulge in the flavors of the Mediterranean with this
                 mouthwatering grilled chicken dish. Tender chicken breasts are
                 marinated in a blend of olive oil, lemon juice, garlic, and
                 Mediterranean spices, infusing them with rich flavor and aroma
               </p>
-              <Link to={'/allfoods'}>
-                <button className="btn  btn-primary btn-outline">
+              <Link to={"/allfoods"}>
+                <button className="btn  btn-primary btn-outline my-2">
                   See All Foods
                 </button>
               </Link>
@@ -57,15 +61,17 @@ function Banner() {
           <div id="item3" className="carousel-item w-full relative">
             <img src={banner3} className="w-full" />
             <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%]  space-y-4  ">
-              <h3 className="text-3xl font-bold drop-shadow-lg">' {text} '</h3>
-              <p className="text-2xl font-semibold drop-shadow-lg">
+              <h3 className="text-3xl font-bold drop-shadow-lg hidden md:block">
+                ' {text} '
+              </h3>
+              <p className="text-2xl font-semibold drop-shadow-lg hidden lg:block">
                 Indulge in the flavors of the Mediterranean with this
                 mouthwatering grilled chicken dish. Tender chicken breasts are
                 marinated in a blend of olive oil, lemon juice, garlic, and
                 Mediterranean spices, infusing them with rich flavor and aroma
               </p>
-              <Link to={'/allfoods'}>
-                <button className="btn  btn-primary btn-outline">
+              <Link to={"/allfoods"}>
+                <button className="btn  btn-primary btn-outline my-2">
                   See All Foods
                 </button>
               </Link>
@@ -74,15 +80,17 @@ function Banner() {
           <div id="item4" className="carousel-item w-full relative">
             <img src={banner4} className="w-full " />
             <div className="  bg-slate-50 px-5 py-7 rounded absolute left-8 top-20 w-[45%]  space-y-4  ">
-              <h3 className="text-3xl font-bold drop-shadow-lg">' {text} '</h3>
-              <p className="text-2xl font-semibold drop-shadow-lg">
+              <h3 className="text-3xl font-bold drop-shadow-lg hidden md:block lg:block">
+                ' {text} '
+              </h3>
+              <p className="text-2xl font-semibold drop-shadow-lg hidden lg:block">
                 Indulge in the flavors of the Mediterranean with this
                 mouthwatering grilled chicken dish. Tender chicken breasts are
                 marinated in a blend of olive oil, lemon juice, garlic, and
                 Mediterranean spices, infusing them with rich flavor and aroma
               </p>
-              <Link to={'/allfoods'}>
-                <button className="btn  btn-primary btn-outline">
+              <Link to={"/allfoods"}>
+                <button className="btn  btn-primary btn-outline my-2">
                   See All Foods
                 </button>
               </Link>

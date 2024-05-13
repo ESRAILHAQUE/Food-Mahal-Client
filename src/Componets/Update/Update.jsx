@@ -45,8 +45,8 @@ function Update() {
        addBy,
        email,
      };
-     console.log(updateInfo);
-     fetch("http://localhost:5000/added", {
+    //  console.log(updateInfo);
+     fetch("https://testing-sand-phi.vercel.app/added", {
        method: "POST",
        headers: {
          "content-type": "application/json",
@@ -55,7 +55,7 @@ function Update() {
      })
        .then((res) => res.json())
        .then((data) => {
-         console.log(data);
+        //  console.log(data);
          if (data.insertedId) {
            Swal.fire({
              title: "Success!",

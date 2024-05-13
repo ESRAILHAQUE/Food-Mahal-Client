@@ -1,29 +1,42 @@
 import { useEffect, useState } from "react"
 import FoodCard from "./FoodCard";
 import logo from "../../assets/images/logo.png"
+import { Link, useNavigate } from "react-router-dom";
+import { BiLeftArrowAlt } from "react-icons/bi";
 
 function AllFoods() {
     const [foods, setFoods] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/allfoods")
+        fetch("https://testing-sand-phi.vercel.app/allfoods")
             .then(res => res.json())
             .then(data => {
             setFoods(data)
         })
-    },[])
+    }, [])
+  const navigate = useNavigate();
+  const handleHome = () => {
+    navigate('/');
+    window.scrollTo(0, 0);
+  }
     return (
-        <div>
-            
-        <div
-          className="bg-[#a2d9ff] py-5 "
-        >
+      <div>
+        <div className="bg-[#a2d9ff] py-5 ">
           <h2 className="text-4xl text-center font-semibold text-white">
             All Delicious Food
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mx-8 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mx-2 lg:mx-8 mt-8 mb-6">
             {foods.map((food) => (
               <FoodCard key={food._id} food={food}></FoodCard>
             ))}
+          </div>
+          <div className="text-center">
+            
+              
+                <button className="btn btn-primary btn-outline" onClick={handleHome}>
+                  <BiLeftArrowAlt /> Back to Home
+                </button>
+            
+           
           </div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

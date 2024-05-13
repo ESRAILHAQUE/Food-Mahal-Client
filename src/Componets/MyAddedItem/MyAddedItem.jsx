@@ -2,19 +2,23 @@ import { useContext, useEffect, useState } from "react"
 import AddedItemCard from "./AddedItemCard";
 import bg from '../../assets/images/bggif.gif'
 import { AuthContext } from "../../Providers/AuthProviders";
+import axios from "axios";
 
 function MyAddedItem() {
     const [items, setItems] = useState([]);
-    const { users } = useContext(AuthContext);
-    const url = `http://localhost:5000/addeditems?email=${users.email}`;
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setItems(data);
-      });
-  }, []);
+  const { users,loading } = useContext(AuthContext);
   
+    const url = `https://testing-sand-phi.vercel.app/addeditems?email=${users?.email}`;
+  useEffect(() => {
+    if (users?.email) {
+      axios.get(url, { withCredentials: true }).then((data) => {
+        setItems(data.data);
+      });
+    }
+  }, [users?.email]);
+   if (loading) {
+     return <div>Loading...</div>;
+   }
   return (
     <div>
       <h1 className="text-center text-2xl my-5">My Added Food Items</h1>

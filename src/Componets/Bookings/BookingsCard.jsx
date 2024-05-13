@@ -1,7 +1,8 @@
-import { MdOutlineEdit } from "react-icons/md";
+import { MdDeleteOutline, MdOutlineEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-function AddedItemCard({ item }) {
+
+function BookingsCard({ item,handleDelete }) {
   const {
     _id,
     foodName,
@@ -11,7 +12,8 @@ function AddedItemCard({ item }) {
     origin,
     email,
     price,
-  } = item;
+    } = item;
+   
   return (
     <tr>
       <td>
@@ -26,16 +28,17 @@ function AddedItemCard({ item }) {
       <td>
         <span className="text-xl">{foodName}</span>
       </td>
-      <td>${price}</td>
+      <td>
+        <div className="badge badge-secondary badge-outline py-1">pending</div>
+      </td>
+      <td>{price}</td>
       <th>
-        <Link to={`/update/${_id}`}>
-          <button className="btn btn-warning">
-            <MdOutlineEdit className="text-2xl font-bold" />
-            Update
-          </button>
-        </Link>
+        <button onClick={() => handleDelete(_id)} className="btn btn-warning">
+          <MdDeleteOutline className="text-2xl font-bold" />
+          Delete
+        </button>
       </th>
     </tr>
   );
 }
-export default AddedItemCard;
+export default BookingsCard;

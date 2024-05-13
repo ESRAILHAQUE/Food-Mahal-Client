@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
@@ -10,21 +10,10 @@ import { ToastContainer, toast } from "react-toastify";
 // import { useHistory } from "react-router-dom";
 
 function Login() {
-    const showLoginSuccessToast = () => {
-  toast.success("Login successful!", {
-    position: "top-right",
-    autoClose: 3000, // Close the notification after 3 seconds
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-  });
-};
 
   const { SignIn } = useContext(AuthContext);
   const auth = getAuth(app);
-
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleLogin = (event) => {
@@ -36,7 +25,7 @@ function Login() {
       email,
       password,
     };
-    console.log(userCredientials);
+    // console.log(userCredientials);
     SignIn(email, password)
       .then((result) => {
           const user = result.user;
@@ -47,8 +36,8 @@ function Login() {
                    text: "Successfully Login",
                  });
           }
-        console.log(user);
-        navigate("/");
+        // console.log(user);
+        navigate(location?.state ? location?.state: "/");
       })
       .catch((error) => {
           console.error(error.message);

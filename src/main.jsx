@@ -21,6 +21,7 @@ import AddFoodItem from './Componets/AddFoodItem/AddFoodItem.jsx';
 import MyAddedItem from './Componets/MyAddedItem/MyAddedItem.jsx';
 import Update from './Componets/Update/Update.jsx';
 import Review from './Componets/Review/Review.jsx';
+import Bookings from './Componets/Bookings/Bookings.jsx';
 
 const router = createBrowserRouter([
   {
@@ -61,12 +62,17 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myaddeditem",
+        path: "/bookings",
         element: (
           <PrivateRoute>
-            <MyAddedItem></MyAddedItem>
+          
+            <Bookings></Bookings>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/myaddeditem",
+        element: <MyAddedItem></MyAddedItem>,
       },
       {
         path: "/review",
@@ -80,13 +86,13 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addeditems/${params.id}`),
+          fetch(`https://testing-sand-phi.vercel.app/addeditems/${params.id}`),
       },
       {
         path: "/singlefood/:id",
         element: <SingleFood></SingleFood>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allfoods/${params.id}`),
+          fetch(`https://testing-sand-phi.vercel.app/allfoods/${params.id}`),
       },
       {
         path: "/purchase/:id",
@@ -96,7 +102,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/purchase/${params.id}`),
+          fetch(`https://testing-sand-phi.vercel.app/purchase/${params.id}`),
       },
     ],
   },
