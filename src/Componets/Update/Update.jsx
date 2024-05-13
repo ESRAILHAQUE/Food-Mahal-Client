@@ -7,7 +7,8 @@ import { useLoaderData } from "react-router-dom";
 
 function Update() {
     const food = useLoaderData();
-    const {
+  const {
+      _id,
       foodName,
       foodImage,
       subCatagory,
@@ -19,7 +20,7 @@ function Update() {
       addBy,
     } = food;
    const { users } = useContext(AuthContext);
-   const handleAdd = (event) => {
+   const handleUpdate = (event) => {
      event.preventDefault();
      const form = event.target;
      const foodName = form.foodName.value;
@@ -46,20 +47,20 @@ function Update() {
        email,
      };
     //  console.log(updateInfo);
-     fetch("https://testing-sand-phi.vercel.app/added", {
-       method: "POST",
+     fetch(`https://testing-sand-phi.vercel.app/update/${_id}`, {
+       method: "PUT",
        headers: {
          "content-type": "application/json",
        },
-       body: JSON.stringify(addInfo),
+       body: JSON.stringify(updateInfo),
      })
        .then((res) => res.json())
        .then((data) => {
-        //  console.log(data);
-         if (data.insertedId) {
+         //  console.log(data);
+         if (data.modifiedCount) {
            Swal.fire({
              title: "Success!",
-             text: "Succesfully added!",
+             text: "Succesfully updated!",
              icon: "success",
            });
          }
@@ -77,9 +78,9 @@ function Update() {
          <h2 className="text-3xl font-bold text-white text-center py-7">
            Update Food
          </h2>
-         <div className="hero  bg-base-200 px-16 py-10 bg-transparent">
+         <div className="hero  bg-base-200 px-2 lg:px-16 py-10 bg-transparent">
            <div className="card  w-full shadow-2xl  bg-base-200 bg-transparent   bordered ">
-             <form onSubmit={handleAdd}>
+             <form onSubmit={handleUpdate}>
                <div className="card-body gap-2 grid grid-cols-1 lg:grid-cols-2 ">
                  <div className="form-control">
                    <label className="label">

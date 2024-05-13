@@ -52,7 +52,7 @@ function Bookings() {
   return (
     <div>
       
-      <h1 className="text-center text-2xl my-5">My Order</h1>
+      <h1 className="text-center text-2xl my-5">My Order : { items.length}</h1>
       <div className="mx-auto">
         <div className="mx-auto">
           <table className="table">

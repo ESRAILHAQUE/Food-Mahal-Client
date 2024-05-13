@@ -78,7 +78,7 @@ function Gallery() {
         >
           Add Picture
         </button>
-        <dialog id="my_modal_3" className="modal" ref={modalRef}>
+         <dialog id="my_modal_3" className="modal" ref={modalRef}>
           {/* Assign ref to modal */}
           <div className="modal-box">
             <h1>Add a Picture</h1>
@@ -125,6 +125,7 @@ function Gallery() {
             </form>
           </div>
         </dialog>
+         
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {pics.map((pic) => (

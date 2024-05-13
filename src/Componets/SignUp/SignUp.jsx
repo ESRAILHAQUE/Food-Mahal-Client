@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { FaFacebook } from "react-icons/fa";
@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 
 function SignUp() {
   const Navigate = useNavigate();
- 
+  const location = useLocation();
   const { createUser } = useContext(AuthContext);
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -49,7 +49,7 @@ function SignUp() {
               title: "Congratulatios!",
               text: "User Successfully registered",
             });
-              Navigate("/");
+               Navigate(location?.state ? location?.state : "/");
          }
       })
       .catch((error) => {

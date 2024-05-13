@@ -25,7 +25,7 @@ function TopFood() {
         <h2 className="text-4xl text-center font-semibold text-white">
           All Delicious Food
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mx-8 mt-8 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mx-2 lg:mx-8 mt-8 mb-6">
           {topSixFoods.map((food) => (
             <TopFoodCard key={food._id} food={food}></TopFoodCard>
           ))}

@@ -77,10 +77,10 @@ function Purchase() {
       </div>
 
       <div className="text-center text-3xl my-3 space-y-3">
-              <h1>{foodName}</h1>
-              <h2>Item left: {quantity }</h2>
-          </div>
-          
+        <h1>{foodName}</h1>
+        <h2>Item left: {quantity}</h2>
+        {quantity <= 0 && <p>This is not available right now.</p>}
+      </div>
 
       {/* form section */}
       <div className="mb-10">
@@ -110,6 +110,7 @@ function Purchase() {
                     placeholder="Quantity"
                     className="input input-bordered "
                     required
+                    disabled
                     name="purchaseQuantity"
                     defaultValue={1}
                   />
@@ -171,6 +172,7 @@ function Purchase() {
                 <input
                   className="btn w-full mx-auto bg-red-600  "
                   type="submit"
+                  disabled={quantity < 1}
                   value="Purchase Confirm"
                 />
               </div>
