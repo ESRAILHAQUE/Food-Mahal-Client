@@ -1,9 +1,9 @@
 # React + Vite
 # Foodie Delight
 
-## Live Site: [Foodie Delight](https://sensory-fution.web.app)
+## Live Site: [Food Mahal](https://sensory-fution.web.app)
 
-Welcome to Foodie Delight, your go-to destination for delicious recipes and culinary inspiration!
+Welcome to Food Mahal, your go-to destination for delicious recipes and culinary inspiration!
 
 ### Features:
 
